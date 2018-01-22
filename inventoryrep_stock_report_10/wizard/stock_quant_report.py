@@ -15,18 +15,7 @@ class WizardValuationStockInventory(models.TransientModel):
     _name = 'wizard.valuation.stock.inventory'
     _description = 'Wizard that opens the stock Inventory by Location'
 
-    @api.model
-    def _get_location_id(self):
-        location=[]
-        user_id =  self.env['res.users'].browse(self.env.uid)
-        if user_id.user_has_groups('stock.group_stock_manager'):
-            return "[(1, '=', 1)]"
-        elif user_id.user_has_groups('stock.group_stock_user'):
-            for i in user_id.location_ids:
-                location.append(i.id)
-            return "[('id', 'in', %s)]" % (location)
-
-    location_id = fields.Many2one('stock.location', string= 'Location',required=True,domain=_get_location_id,)    
+    location_id = fields.Many2one('stock.location', string= 'Location',required=True)    
     product_categ_id = fields.Many2one('product.category', string= 'Category')
     product_sub_categ_id = fields.Many2one('product.category', string= 'Sub Category')
     line_ids = fields.One2many('wizard.valuation.stock.inventory.line','wizard_id',required=True,ondelete='cascade')
