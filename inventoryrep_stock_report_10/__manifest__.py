@@ -21,7 +21,7 @@
 {
     "name": "Inventory Stock Report",
     "version": "1.0",
-    "author": "Ananthu Krishna",
+    "author": "CodersFort",
     "license": "AGPL-3",
     "website": "www.codersfort.com",
     "summary": "Print pdf report by location",
