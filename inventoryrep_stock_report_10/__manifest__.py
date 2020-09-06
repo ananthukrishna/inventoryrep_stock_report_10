@@ -27,6 +27,7 @@
     "summary": "Print pdf report by location",
     "description": "Print pdf report by location",
     "category": "Inventory",
+    "images": ["images/inventoryrep_stock_report_10.png"],
     "depends": [
         'stock',
     ],
